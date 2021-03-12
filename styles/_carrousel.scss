@@ -1,0 +1,19 @@
+.carrousel {
+
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+
+  &__slider {
+    display: flex;
+    height: 100%;
+    transition: transform .3s ease-in-out;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
