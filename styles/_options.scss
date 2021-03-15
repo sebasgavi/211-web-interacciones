@@ -1,0 +1,23 @@
+.options {
+
+  display: flex;
+
+  &__viz {
+    height: 300px;
+    width: 300px;
+
+    background-color: gray;
+
+    &--green {
+      background-color: green;
+    }
+
+    &--blue {
+      background-color: blue;
+    }
+
+    &--red {
+      background-color: red;
+    }
+  }
+}

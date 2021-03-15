@@ -7,7 +7,7 @@ for(let i = 0; i < thumbs.length; i++) {
 
   function handleThumbClick () {
     // leemos el source del thumb al que se le dió click
-    const thumbSrc = thumb.getAttribute('src');
+    const thumbSrc = thumb.getAttribute('data-src');
     // asignamos el source a la imagen grande, de la que se le dió click
     current.setAttribute('src', thumbSrc);
   }
@@ -46,3 +46,37 @@ function handleMouseLeave () {
 }
 
 slider.addEventListener('mouseleave', handleMouseLeave);
+
+
+
+
+
+const optionsViz = document.querySelector('.options__viz');
+const optionsItems = document.querySelectorAll('.options__item');
+const originalOptionsVizClass = optionsViz.className;
+
+function handleForEach (elem, i) {
+
+  function handleOptionClick () {
+    optionsViz.className = originalOptionsVizClass;
+    const className = `options__viz--${elem.getAttribute('data-color')}`;
+    optionsViz.classList.add(className);
+  }
+
+  elem.addEventListener('click', handleOptionClick);
+}
+
+optionsItems.forEach(handleForEach);
+
+
+
+
+const btnOpenModal = document.querySelector('.bnt-open-modal');
+const modal = document.querySelector('.modal');
+
+function handleOpenModal () {
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+btnOpenModal.addEventListener('click', handleOpenModal);

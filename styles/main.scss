@@ -1,2 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
 @import 'gallery';
 @import 'carrousel';
+@import 'options';
+@import 'modal';

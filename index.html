@@ -9,12 +9,15 @@
 </head>
 <body>
 
+  <button class="btn bnt-open-modal">Abrir modal</button>
+
+
   <section class="gallery">
     <img src="" alt="" class="gallery__current">
     <div class="gallery__options">
-      <img class="gallery__thumb" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg" alt="">
-      <img class="gallery__thumb" src="https://www.gardeningknowhow.com/wp-content/uploads/2020/12/lonely-japanese-cherry.jpg" alt="">
-      <img class="gallery__thumb" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80" alt="">
+      <button class="gallery__thumb" data-src="https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg">Imagen 1</button>
+      <button class="gallery__thumb" data-src="https://www.gardeningknowhow.com/wp-content/uploads/2020/12/lonely-japanese-cherry.jpg">Imagen 2</button>
+      <button class="gallery__thumb" data-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80">Imagen 3</button>
     </div>
   </section>
 
@@ -26,6 +29,24 @@
       <img class="carrousel__slide" src="https://www.gardeningknowhow.com/wp-content/uploads/2020/12/lonely-japanese-cherry.jpg" alt="">
       <img class="carrousel__slide" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHw%3D&w=1000&q=80" alt="">
     </div>
+  </section>
+
+
+  <section class="options">
+    <div class="options__viz"></div>
+    <div class="options__list">
+      <button data-color="blue" class="options__item">1</button>
+      <button data-color="green" class="options__item">2</button>
+      <button data-color="red" class="options__item">3</button>
+    </div>
+  </section>
+
+
+
+  <section class="modal">
+    <article class="modal__content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem reprehenderit commodi nemo quo dolores neque ullam, quas, porro nostrum laborum ipsa beatae, omnis labore modi ea? Quos eos rem placeat.</p>
+    </article>
   </section>
 
 
