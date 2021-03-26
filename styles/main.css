@@ -132,4 +132,41 @@
   top: 5px;
   right: 5px;
 }
+
+.list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.product {
+  border: 1px solid gray;
+  width: 300px;
+  display: block;
+  text-decoration: none;
+  margin: 20px;
+}
+
+.product__img {
+  width: 100%;
+}
+
+.product__info {
+  padding: 10px;
+}
+
+.product__title {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.product__price {
+  margin: 0;
+}
+
+.product:hover {
+  background-color: gray;
+}
 /*# sourceMappingURL=main.css.map */
