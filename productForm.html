@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Form</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+
+  <form class="productForm">
+
+    <p class="productForm__loader hidden">
+      Loading...
+    </p>
+
+    <p class="productForm__success hidden">
+      Document successfully added
+    </p>
+
+    <p class="productForm__error hidden">
+      We had a problem, try again
+    </p>
+
+    <label class="productForm__label" for="name">Name</label>
+    <input class="productForm__input" id="name" name="name" type="text" placeholder="Name of the product">
+
+    <label class="productForm__label">
+      Price
+      <input class="productForm__input" type="number" name="price">
+    </label>
+
+    <label class="productForm__label">Sizes</label>
+    <label class="productForm__label productForm__label--checkbox">
+      <input class="productForm__checkbox" type="checkbox" name="size_s">
+      Size S
+    </label>
+    <label class="productForm__label productForm__label--checkbox">
+      <input class="productForm__checkbox" type="checkbox" name="size_m">
+      Size M
+    </label>
+    <label class="productForm__label productForm__label--checkbox">
+      <input class="productForm__checkbox" type="checkbox" name="size_l">
+      Size L
+    </label>
+
+    <button class="productForm__btn" type="submit">send</button>
+  </form>
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+
+  <script src="./scripts/productForm.js"></script>
+
+</body>
+</html>

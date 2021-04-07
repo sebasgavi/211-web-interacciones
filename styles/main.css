@@ -169,4 +169,34 @@
 .product:hover {
   background-color: gray;
 }
+
+.productForm__label {
+  display: block;
+  margin-top: 10px;
+}
+
+.productForm__label--checkbox {
+  margin-top: 2px;
+}
+
+.productForm__input {
+  display: block;
+}
+
+.productForm__btn {
+  margin-top: 15px;
+  display: block;
+}
+
+.productForm__success {
+  color: green;
+}
+
+.productForm__error {
+  color: red;
+}
+
+.hidden {
+  display: none !important;
+}
 /*# sourceMappingURL=main.css.map */
