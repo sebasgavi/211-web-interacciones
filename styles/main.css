@@ -196,6 +196,11 @@
   color: red;
 }
 
+.productForm__img {
+  width: 200px;
+  margin: 4px 0;
+}
+
 .hidden {
   display: none !important;
 }

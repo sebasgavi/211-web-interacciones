@@ -31,25 +31,57 @@
       <input class="productForm__input" type="number" name="price">
     </label>
 
-    <label class="productForm__label">Sizes</label>
-    <label class="productForm__label productForm__label--checkbox">
-      <input class="productForm__checkbox" type="checkbox" name="size_s">
-      Size S
-    </label>
-    <label class="productForm__label productForm__label--checkbox">
-      <input class="productForm__checkbox" type="checkbox" name="size_m">
-      Size M
-    </label>
-    <label class="productForm__label productForm__label--checkbox">
-      <input class="productForm__checkbox" type="checkbox" name="size_l">
-      Size L
-    </label>
+    <label for="type" class="productForm__label">Type of product</label>
+    <select id="type" class="productForm__input" name="type">
+      <option value="">Select a type</option>
+      <option value="sticker">Sticker</option>
+      <option value="t-shirt">T-Shirt</option>
+      <option value="mug">Mug</option>
+    </select>
+
+    <div class="tshirtFields hidden">
+      <label class="productForm__label">Sizes</label>
+      <label class="productForm__label productForm__label--checkbox">
+        <input class="productForm__checkbox" type="checkbox" name="size_s">
+        Size S
+      </label>
+      <label class="productForm__label productForm__label--checkbox">
+        <input class="productForm__checkbox" type="checkbox" name="size_m">
+        Size M
+      </label>
+      <label class="productForm__label productForm__label--checkbox">
+        <input class="productForm__checkbox" type="checkbox" name="size_l">
+        Size L
+      </label>
+    </div>
+
+    <div class="stickerFields hidden">
+      <label class="productForm__label">Sizes</label>
+      <label class="productForm__label productForm__label--checkbox">
+        <input class="productForm__checkbox" type="checkbox" name="size_10">
+        10cm
+      </label>
+      <label class="productForm__label productForm__label--checkbox">
+        <input class="productForm__checkbox" type="checkbox" name="size_20">
+        20cm
+      </label>
+    </div>
+
+    <div class="mugFields hidden">
+      <label for="color" class="productForm__label">Color</label>
+      <input id="color" type="color" name="color">
+    </div>
+
+    <label for="image" class="productForm__label">Image</label>
+    <img class="productForm__img hidden" src="" />
+    <input multiple accept=".jpg,.png" id="image" class="productForm__input" name="image" type="file">
 
     <button class="productForm__btn" type="submit">send</button>
   </form>
 
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 
   <script src="./scripts/productForm.js"></script>
 
