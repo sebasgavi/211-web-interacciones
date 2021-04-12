@@ -73,8 +73,8 @@
     </div>
 
     <label for="image" class="productForm__label">Image</label>
-    <img class="productForm__img hidden" src="" />
-    <input multiple accept=".jpg,.png" id="image" class="productForm__input" name="image" type="file">
+    <div class="productForm__images"></div>
+    <input multiple accept=".jpg,.png,.webp,.jfif" id="image" class="productForm__input" name="image" type="file">
 
     <button class="productForm__btn" type="submit">send</button>
   </form>
@@ -83,6 +83,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
 
+  <script src="./scripts/general.js"></script>
   <script src="./scripts/productForm.js"></script>
 
 </body>

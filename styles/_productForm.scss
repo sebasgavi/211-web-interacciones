@@ -28,6 +28,10 @@
 
   &__img {
     width: 200px;
-    margin: 4px 0;
+    margin: 4px 10px 0 0;
+  }
+
+  &__images {
+    display: flex;
   }
 }
