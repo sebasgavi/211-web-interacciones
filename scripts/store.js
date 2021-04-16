@@ -16,10 +16,11 @@ const handleCollectionResult = (querySnapshot) => {
             (${data.type}) ${data.name}
           </h1>
           <h3 class="product__price">$ ${data.price}</h3>
+          <p>${new Date(data.createdAt)}</p>
         </div>
       `;
       product.classList.add('product');
-      product.setAttribute('href', '#' + doc.id);
+      product.setAttribute('href', `./product.html?id=${doc.id}&name=${data.name}`);
 
       list.appendChild(product);
   });
@@ -28,8 +29,6 @@ const handleCollectionResult = (querySnapshot) => {
 const filters = document.querySelector('.filters');
 
 filters.addEventListener('change', function () {
-  console.log(filters.test);
-
   let productsCollection = db.collection('products');
 
   const types = [];
@@ -56,6 +55,29 @@ filters.addEventListener('change', function () {
         break;
       case '2':
         productsCollection = productsCollection.where('price', '>=', 30000);
+        break;
+    }
+  }
+
+  if(filters.order.value) {
+    switch(filters.order.value) {
+      case 'price_asc':
+        productsCollection = productsCollection.orderBy('price', 'asc');
+        break;
+      case 'price_desc':
+        productsCollection = productsCollection.orderBy('price', 'desc');
+        break;
+      case 'alpha':
+        if(filters.price.value) {
+          productsCollection = productsCollection.orderBy('price', 'asc');
+        }
+        productsCollection = productsCollection.orderBy('name', 'asc');
+        break;
+      case 'createdAt':
+        if(filters.price.value) {
+          productsCollection = productsCollection.orderBy('price', 'asc');
+        }
+        productsCollection = productsCollection.orderBy('createdAt', 'desc');
         break;
     }
   }

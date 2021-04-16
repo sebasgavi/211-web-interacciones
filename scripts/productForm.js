@@ -48,6 +48,7 @@ productForm.addEventListener('submit', function (event) {
     name: productForm.name.value,
     price: parseFloat(productForm.price.value),
     type: productForm.type.value,
+    createdAt: Date.now(),
   };
 
   switch(product.type) {
