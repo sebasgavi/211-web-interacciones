@@ -97,10 +97,8 @@
   width: 100vw;
   height: 100vh;
   padding: 20px;
-  display: none;
   -webkit-transition: opacity .5s ease;
   transition: opacity .5s ease;
-  opacity: 0;
 }
 
 .modal__backdrop {
@@ -122,8 +120,6 @@
   transition: -webkit-transform .5s ease;
   transition: transform .5s ease;
   transition: transform .5s ease, -webkit-transform .5s ease;
-  -webkit-transform: translate(0px, -500px);
-          transform: translate(0px, -500px);
   position: relative;
 }
 
