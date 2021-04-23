@@ -26,6 +26,8 @@ authModal.innerHTML = `
           <input class="productForm__input" type="password" name="password">
         </label>
 
+        <p class="productForm__error"></p>
+
         <button type="button" class="authform__register">Go to register</button>
         <button type="button" class="authform__login">Go to login</button>
         <button type="submit">Send</button>
@@ -39,7 +41,9 @@ const authForm = authModal.querySelector('.authform');
 const regFields = authForm.querySelectorAll('.authform__regfield');
 const registerBtn = authForm.querySelector('.authform__register');
 const loginBtn = authForm.querySelector('.authform__login');
+const modalError = authForm.querySelector('.productForm__error');
 let isLogin = true;
+const authModalContent = authModal.querySelector('.modal__content');
 
 function handleGoToLogin () {
   regFields.forEach(function (elem) {
@@ -73,7 +77,13 @@ authForm.addEventListener('submit', function (event) {
   const password = authForm.password.value;
 
   if(isLogin) {
-
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((error) => {
+        modalError.innerText = error.message;
+      });
   } else {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
@@ -86,9 +96,44 @@ authForm.addEventListener('submit', function (event) {
           lastname: lastname,
           email: email,
         });
+        handleCloseModal();
       })
       .catch((error) => {
-        console.log(error);
+        modalError.innerText = error.message;
       });
   }
+});
+
+
+const authButtons = document.querySelector('.authButtons');
+authButtons.innerHTML = `
+  <button class="authButtons__login hideLoggedIn">Login / Register</button>
+  <button class="authButtons__logout hidden showLoggedIn">Logout</button>
+`;
+
+const authLogin = authButtons.querySelector('.authButtons__login');
+const authLogout = authButtons.querySelector('.authButtons__logout');
+
+function handleModalAppear () {
+  authModal.style.opacity = 1;
+  authModalContent.style.transform = 'translate(0px, 0px)';
+}
+
+authLogin.addEventListener('click', function () {
+  authModal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  setTimeout(handleModalAppear, 1);
+});
+
+function handleCloseModal () {
+  authModal.style.opacity = 0;
+  authModalContent.style.transform = 'translate(0px, -500px)';
+  document.body.style.overflow = 'hidden scroll';
+  setTimeout(function () {
+    authModal.style.display = 'none';
+  }, 500);
+}
+
+authLogout.addEventListener('click', function() {
+  firebase.auth().signOut();
 });
