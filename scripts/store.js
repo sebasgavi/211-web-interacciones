@@ -20,9 +20,17 @@ const handleCollectionResult = (querySnapshot) => {
             <p>${new Date(data.createdAt)}</p>
           </div>
         </a>
+        <button class="product__cartBtn">Add to cart</button>
         <button class="hidden showLoggedAdmin">delete</button>
       `;
       list.appendChild(product);
+
+      const cartBtn = product.querySelector('.product__cartBtn');
+      cartBtn.addEventListener('click', function () {
+        cart.push(data);
+        localStorage.setItem('store__cart', JSON.stringify(cart));
+        cartBtnNumber.innerText = cart.length;
+      });
   });
 }
 
