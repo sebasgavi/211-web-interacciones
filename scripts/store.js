@@ -3,38 +3,36 @@ const list = document.querySelector('.list');
 const handleCollectionResult = (querySnapshot) => {
   list.innerHTML = '';
   querySnapshot.forEach((doc) => {
-      const data = doc.data();
-      const product = document.createElement('div');
-      let img = data.images[0]?.url;
-      if(!img) {
-        img = './images/placeholder-image.png';
-      }
-      product.innerHTML = `
-        <a class="product" href="./product.html?id=${doc.id}&name=${data.name}">
-          <img class="product__img" src="${img}" alt="">
-          <div class="product__info">
-            <h1 class="product__title">
-              (${data.type}) ${data.name}
-            </h1>
-            <h3 class="product__price">$ ${data.price}</h3>
-            <p>${new Date(data.createdAt)}</p>
-          </div>
-        </a>
-        <button class="product__cartBtn">Add to cart</button>
-        <button class="hidden showLoggedAdmin">delete</button>
-      `;
-      list.appendChild(product);
+    const data = doc.data();
+    const product = document.createElement('div');
+    let img = data.images[0]?.url;
+    if(!img) {
+      img = './images/placeholder-image.png';
+    }
+    product.innerHTML = `
+      <a class="product" href="./product.html?id=${doc.id}&name=${data.name}">
+        <img class="product__img" src="${img}" alt="">
+        <div class="product__info">
+          <h1 class="product__title">
+            (${data.type}) ${data.name}
+          </h1>
+          <h3 class="product__price">$ ${data.price}</h3>
+          <p>${new Date(data.createdAt)}</p>
+        </div>
+      </a>
+      <button class="product__cartBtn hidden showLoggedIn">Add to cart</button>
+      <button class="hidden showLoggedAdmin">delete</button>
+    `;
+    list.appendChild(product);
 
-      const cartBtn = product.querySelector('.product__cartBtn');
-      cartBtn.addEventListener('click', function () {
-      cart.push(data);
-
-        addToMyCart({
-          ...data,
-          id: doc.id,
-        });
-        //localStorage.setItem('store__cart', JSON.stringify(cart));
+    const cartBtn = product.querySelector('.product__cartBtn');
+    cartBtn.addEventListener('click', function () {
+      addToMyCart({
+        ...data,
+        id: doc.id,
       });
+      //localStorage.setItem('store__cart', JSON.stringify(cart));
+    });
   });
 }
 
