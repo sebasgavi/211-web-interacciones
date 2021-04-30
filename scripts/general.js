@@ -29,6 +29,26 @@ firebase.auth().onAuthStateChanged((user) => {
 
 let cart = [];
 const cartBtnNumber = document.querySelector('.cartBtn span');
+const CART_COLLECTION = db.collection('cart');
+
+const addToMyCart = () => {
+  CART_COLLECTION.doc(loggedUser.uid).set({
+    cart,
+  });
+  cartBtnNumber.innerText = cart.length;
+};
+
+const getMyCart = () => {
+  CART_COLLECTION.get().then(snapShot => {
+    cartBtnNumber.innerText = snapShot.docs.length;
+    snapShot.forEach(element => {
+      const product = element.data();
+      cart.push(product);
+    });
+  });
+}
+
+getMyCart();
 
 const cartFromLS = localStorage.getItem('store__cart');
 if(cartFromLS) {

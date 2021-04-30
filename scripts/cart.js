@@ -2,6 +2,7 @@ const list = document.querySelector('.cartList');
 
 let total = 0;
 
+
 cart.forEach((data) => {
   const product = document.createElement('div');
   let img = data.images[0]?.url;
