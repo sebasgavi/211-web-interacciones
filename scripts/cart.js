@@ -1,4 +1,6 @@
 const list = document.querySelector('.cartList');
+const totalSpan = document.querySelector('.checkout__total span');
+const checkoutForm = document.querySelector('.checkout__form');
 
 let total = 0;
 
@@ -22,5 +24,38 @@ renderCart = () => {
     `;
     list.appendChild(product);
     total += data.price;
+  });
+
+  totalSpan.innerText = total;
+
+  checkoutForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const producIds = [];
+    cart.forEach(function (data) {
+      producIds.push(data.id);
+    });
+
+    const order = {
+      ccNumber: checkoutForm.ccnumber.value,
+      address: checkoutForm.address.value,
+      date: Date.now(),
+      producIds: producIds,
+      total: total,
+      uid: loggedUser.uid,
+    };
+
+    ORDERS_COLLECTION.add(order)
+      .then(function (docRef) {
+        console.log(docRef.id);
+
+        CART_COLLECTION.doc(loggedUser.uid).set({
+          cart: [],
+        });
+
+        location.href = '/store.html';
+      });
+
+    console.log(order)
   });
 }

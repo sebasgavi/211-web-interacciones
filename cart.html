@@ -9,9 +9,28 @@
 </head>
 <body>
 
-  <section class="cartList">
-    
-  </section>
+  <main class="checkout">
+    <section class="checkout__list cartList">
+      
+    </section>
+    <section class="checkout__summary">
+      <h3 class="checkout__total">Total: $ <span></span></h3>
+
+      <form class="checkout__form">
+        <div class="field">
+          <label class="field__label" for="ccnumber">Credit card number</label>
+          <input class="field__input" id="ccnumber" name="ccnumber" type="number" placeholder="">
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="address">Delivery Address</label>
+          <input class="field__input" id="address" name="address" type="text" placeholder="">
+        </div>
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
 
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
