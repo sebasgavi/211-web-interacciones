@@ -18,6 +18,7 @@ const setLoggedUser = (info, id) => {
   loggedUser = info;
   loggedUser.uid = id;
   userAuthChanged(true);
+  if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
 }
 
 firebase.auth().onAuthStateChanged((user) => {
